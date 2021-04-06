@@ -1,0 +1,35 @@
+body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     background-image: url(../images/back-good.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+form {
+     padding: 75px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+button {
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+}
+
+p {
+     font-size: 16px;
+     font-family: "Nunito";
+     color: rgb(0, 0, 0);
+     line-height: 1.2;
+     text-align: center;
+     max-width: 300px;
+}
+
+p span {
+     font-weight: bold;
+}
