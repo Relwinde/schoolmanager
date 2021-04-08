@@ -7,10 +7,56 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
+     padding: 10px;
 }
 
 .nav h1 {
      margin: 0;
      padding: 0;
      display: inline-block;
+}
+
+#class {
+     font-size: 20px;
+     color: rgb(0, 0, 0);
+     line-height: 0;
+     margin-left: 5px;
+}
+
+#userInfo {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+#userInfo h1 {
+     font-size: 25px;
+     color: rgb(0, 0, 0);
+     line-height: 0;
+}
+
+#userInfo h1 span {
+     font-weight: bold;
+}
+
+#userInfo img {
+     width: 50px;
+}
+
+.left-nav {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+@media screen and (min-width: 993px) {
+     .sidenav-trigger {
+          display: none;
+     }
+}
+
+@media screen and (max-width: 992px) {
+     .sidenav-trigger {
+          display: block;
+     }
 }

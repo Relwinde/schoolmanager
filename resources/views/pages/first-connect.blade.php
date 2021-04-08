@@ -7,7 +7,7 @@
     @section('body')
         <img src="{{asset('images/logo.png')}}" alt="">
     
-        <form action="" method="Post" role="form" class="z-depth-2">
+        <form action="" method="Post" role="form" class="z-depth-3 red lighten-5">
         @csrf
             <p>
                 Mr <span>Instrastor NAME</span>,bienvenue sur la plateform de 
