@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.login');
-});
+Route::get('/', 'MainController@usersCheck');
+
+Route::post('register', 'RegisterController@creatAdmin')->name('register');
+
+Route::get('/login', function (){
+    return view ('pages.login');
+})->name('login');
