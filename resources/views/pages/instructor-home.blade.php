@@ -9,13 +9,14 @@
       <div class ="z-depth-2 nav">
          <div class="left-nav">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <h1 id="class">Classe: <span>6e</span>  </h1>
+            <h1 id="class">Professeur - Classe: <span>{{$classe}}</span>  </h1>
          </div>
           <div id="userInfo">
              <img src="{{asset('images/user-icon.png')}}" alt="">
-             <h1>Instructor <span>NAME</span></h1>
+             <h1>{{Auth::user()->firstName}}&nbsp<span>{{Auth::user()->lastName}}</h1>
           </div>
       </div> 
+      
       <div class="main">
       
          <div class="sidebar">

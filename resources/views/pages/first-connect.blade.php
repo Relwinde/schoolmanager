@@ -7,10 +7,10 @@
     @section('body')
         <img src="{{asset('images/logo.png')}}" alt="">
     
-        <form action="" method="Post" role="form" class="z-depth-3 red lighten-5">
+        <form action="{{ route ('save-password') }}" method="Post" role="form" class="z-depth-3 red lighten-5">
         @csrf
             <p>
-                Mr <span>Instrastor NAME</span>,bienvenue sur la plateform de 
+                Mr <span>{{$firstName}}&nbsp{{$lastName}}</span>,bienvenue sur la plateform de 
                 gestion des carrières de nos élèves.
                 <br>
                 Avant d’acceder à votre compte veillez 
@@ -18,13 +18,13 @@
             </p>
            
                 <div class="input-field">
-                    <input required name="mail" type="email" class="validate">
-                    <label for="mail">Mot de passe</label>
+                    <input required name="password" type="password" class="validate">
+                    <label for="password">Mot de passe</label>
                     <span class="helper-text" data-error="Invalide" data-success="Valide">Entrez un mot de passe</span>
                 </div>
 
                 <div class="input-field">
-                    <input required name="pass" type="password" class="validate">
+                    <input required name="passeword_confirmation" type="password" class="validate">
                     <label for="pass">Mot de passe</label>
                     <span class="helper-text" data-error="Invalide" data-success="Valide">Confirmer votre mot de passe</span>
                 </div>

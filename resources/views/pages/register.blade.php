@@ -45,7 +45,7 @@
 
 
                 <button type="submit" class="btn blue waves-effect">Enregister</button>
-            </form>
+        </form>
 
 
     @endsection

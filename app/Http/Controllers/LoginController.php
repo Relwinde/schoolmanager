@@ -7,5 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    //
+    public function authenticate (Request $request){
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)){
+            return redirect()->route('home');
+        }
+        else{
+            return redirect()->back()->withInput(request()->all())->withErrors("Erreur d'authentification, verifiez vos identifiants");
+        }
+    }
+    
 }

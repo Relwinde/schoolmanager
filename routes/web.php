@@ -15,8 +15,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@usersCheck');
 
+// Route::get('/', function (){
+//     return view ('pages.admin-home');
+// });
+
 Route::post('register', 'RegisterController@creatAdmin')->name('register');
 
 Route::get('/login', function (){
     return view ('pages.login');
 })->name('login');
+
+Route::post('/login', 'LoginController@authenticate')->name('log');
+
+Route::get('/home', 'HomePageController@homeProvider')->name('home');
+
+Route::post('/getClassCreateView', 'AjaxController@classCreationView')->name
+('ajax.createClass');
+
+Route::post('/createClass', 'ClassesController@createClass')->name
+('createClass');
+
+Route::get('/verify', 'RegisterController@verifyUser');
+
+Route::post('/confirmAccount', 'RegisterController@savePassword')->name('save-password');

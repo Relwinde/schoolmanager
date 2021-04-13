@@ -7,16 +7,16 @@
     @section('body')
 
     <img src="{{asset('images/logo.png')}}" alt="">
-        <form action="" method="Post" role="form" class="z-depth-3 red lighten-5">
+        <form action="{{ route('log') }}" method="Post" role="form" class="z-depth-3 red lighten-5">
             @csrf
                 <div class="input-field">
-                    <input required name="mail" type="email" class="validate">
+                    <input value = "{{ old ('email') }}" required name="email" type="email" class="validate">
                     <label for="mail">Mail</label>
                     <span class="helper-text" data-error="Invalide" data-success="Valide">Entrez votre addresse mail</span>
                 </div>
 
                 <div class="input-field">
-                    <input required name="pass" type="password" class="validate">
+                    <input value = "{{ old ('password') }}" required name="password" type="password" class="validate">
                     <label for="pass">Mot de passe</label>
                     <span class="helper-text" data-error="Invalide" data-success="Valide">Entrez un mot de passe</span>
                 </div>

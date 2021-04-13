@@ -57,6 +57,12 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function validatePassword (array $data){
+        return Validator::make($data, [
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -82,4 +88,29 @@ class RegisterController extends Controller
         return redirect()->route('login')->withSuccess('Votre compte a été créé avec succès <br> Veuillez renseigner vos identifiants pour vous connecter');
 
     }
+
+    public function verifyUser (){
+        $user = User::where('verificationCode', request()->code)->first();
+        if ($user != null){
+            if ($user->confirmed == false){
+                session()->put('user', $user);
+                return view('pages.first-connect')->with(['firstName'=>$user->firstName, 'lastName'=>$user->lastName]);
+            }
+            else{
+                return redirect()->route('login')->withErrors('Votre compte a été déjà été activé<br> Veuillez renseigner vos identifiants pour vous connecter');
+            }
+        }
+        
+    }
+
+    public function savePassword (){
+        $this->validatePassword(request()->all());
+        $user = session()->get('user');
+        $user->password = Hash::make(request()->password);
+        $user->confirmed = true;
+        $user->save();
+        return redirect()->route('login')->withSuccess('Votre compte a été activé avec succès <br> Veuillez renseigner vos identifiants pour vous connecter');
+
+    }
+
 }
