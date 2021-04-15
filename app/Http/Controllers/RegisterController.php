@@ -31,6 +31,16 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    private $adminRules = [
+        'firstName' => ['required', 'string', 'max:255'],
+        'lastName' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ];
+
+    private $passwordRules = [
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ];
     /**
      * Create a new controller instance.
      *
@@ -80,7 +90,7 @@ class RegisterController extends Controller
     }
 
     public function creatAdmin (){
-        $this->validator(request()->all());
+        request()->validate($this->adminRules);
         $admin = $this->create(request()->all());
         $admin->role = 'admin';
         $admin->confirmed = true;
@@ -100,11 +110,14 @@ class RegisterController extends Controller
                 return redirect()->route('login')->withErrors('Votre compte a été déjà été activé<br> Veuillez renseigner vos identifiants pour vous connecter');
             }
         }
+        else{
+            return "ce code d'activation n'existe pas";
+        }
         
     }
 
     public function savePassword (){
-        $this->validatePassword(request()->all());
+        request()->validate($this->passwordRules);
         $user = session()->get('user');
         $user->password = Hash::make(request()->password);
         $user->confirmed = true;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classe;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomePageController extends Controller
@@ -30,7 +31,7 @@ class HomePageController extends Controller
             session()->put('classId', $classId);
             $classe = Classe::find($classId);
 
-            return view ('pages.instructor-home')->with(['classe'=>$classe->name]);
+            return view ('pages.instructor-home')->with(['classe'=>$classe->name, 'pupils'=>User::where('role','pupil')->where('class', Auth::user()->class)->get()]);
         }
 
     }

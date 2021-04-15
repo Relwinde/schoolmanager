@@ -10,12 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class ClassesController extends Controller
 {
     public function createClass (){
-       
-        
-        
-       $classe = Classe::Create([
-            'name'=> request()->className
-       ]);
+    
        $prof = User::Create([
            'firstName'=>request()->firstName,
            'lastName'=>request()->lastName,
@@ -23,8 +18,15 @@ class ClassesController extends Controller
            'role'=>'instructor',
        ]);
        $prof->verificationCode= sha1(time());
-       $prof->class = $classe->id;
-       $prof->save();
+       
+
+        $classe = Classe::Create([
+        'name'=> request()->className
+         ]);
+
+        $prof->class = $classe->id;
+        $prof->save();
+
        $data = [
            'firstName'=>$prof->fristName,
            'lastName'=>$prof->lastName,

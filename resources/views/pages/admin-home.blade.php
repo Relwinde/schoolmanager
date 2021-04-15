@@ -37,7 +37,7 @@
       
          <div id="leftBar" class="sidebar z-depth-1">
              <button class="btn blue lighten-4">Resumé</button>
-             <button id="createClass" onClick ="createClass()" class="btn waves-effect waves-light green">Ajouter un classe</button>
+             <button id="createClass" onClick ="createClass()" class="btn waves-effect waves-light green">Ajouter une classe</button>
                <div class="nav-wrapper">
                     <form>
                         <div class="input-field">

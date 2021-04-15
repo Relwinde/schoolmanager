@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class AjaxController extends Controller
 {
     public function classCreationView () {
-        return view('ajax.createClass') ;
+        return view('ajax.create-class') ;
+    }
+
+    public function pupilCreationView () {
+        return view ('ajax.create-pupil') ;
     }
 }

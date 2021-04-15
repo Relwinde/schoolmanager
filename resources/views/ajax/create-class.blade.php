@@ -1,5 +1,5 @@
 
-<form id="createClassForm" action="{{route ('createClass')}}" method="Post" role="form" class="red lighten-5">
+<form id="createClassForm" action="{{route('createClass')}}" method="Post" role="form" class="red lighten-5">
         @csrf
         <h5>Ajouter un classe à votre évole</h5>
             <div class="inputs">

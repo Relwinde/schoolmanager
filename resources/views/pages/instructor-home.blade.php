@@ -16,37 +16,46 @@
              <h1>{{Auth::user()->firstName}}&nbsp<span>{{Auth::user()->lastName}}</h1>
           </div>
       </div> 
-      
-      <div class="main">
-      
-         <div class="sidebar">
-
-            
-            <!-- <nav>
+      <ul class="sidenav" id="mobile-demo">
+               <li><button  class="btn blue lighten-4">Resumé</button></li>
+               <li><button id="createClassMobile" class="btn green">Ajouter une classe</button></li>
                <div class="nav-wrapper">
-                  <a href="#!" class="brand-logo">Logo</a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
-                  <li><a href="sass.html">Sass</a></li>
-                  <li><a href="badges.html">Components</a></li>
-                  <li><a href="collapsible.html">Javascript</a></li>
-                  <li><a href="mobile.html">Mobile</a></li>
-                  </ul>
-               </div>
-            </nav>  -->
-
-            <ul class="sidenav" id="mobile-demo">
-               <li><a href="sass.html">Sass</a></li>
-               <li><a href="badges.html">Components</a></li>
-               <li><a href="collapsible.html">Javascript</a></li>
-               <li><a href="mdfgobile.html">Mobile</a></li>
-            </ul>
-
-         </div>
-
-         <div class="contain">  
-         </div> 
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+               
+    </ul>
+      
+   <div id="main" class="main">
+      
+      <div id="leftBar" class="sidebar z-depth-1">
+          <button class="btn blue lighten-4">Resumé</button>
+          <button id="createClass" onClick ="createPupil()" class="btn waves-effect waves-light green">Ajouter un élève</button>
+            <div class="nav-wrapper">
+                 <form>
+                     <div class="input-field">
+                         <input id="search" type="search" required>
+                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                         <i class="material-icons">close</i>
+                     </div>
+                 </form>
+             </div>
+             @foreach($pupils as $pupil)
+                    <button class="btn red lighten-4">{{$pupil->firstName." ".$pupil->firstName}}</button>
+             @endforeach
       </div>
+
+      <div id="contain">  
+      </div> 
+   </div>
+
+
+
     @endsection
        
     @section('scripts')
@@ -59,4 +68,5 @@
             $('.sidenav').sidenav();
          });
       </script>
+      <script src="{{asset('js/instructor-home.js')}}"></script>
     @endsection

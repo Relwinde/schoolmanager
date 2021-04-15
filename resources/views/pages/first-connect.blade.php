@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input required name="passeword_confirmation" type="password" class="validate">
+                    <input required name="password_confirmation" type="password" class="validate">
                     <label for="pass">Mot de passe</label>
                     <span class="helper-text" data-error="Invalide" data-success="Valide">Confirmer votre mot de passe</span>
                 </div>

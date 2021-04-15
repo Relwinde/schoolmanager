@@ -29,11 +29,13 @@ Route::post('/login', 'LoginController@authenticate')->name('log');
 
 Route::get('/home', 'HomePageController@homeProvider')->name('home');
 
-Route::post('/getClassCreateView', 'AjaxController@classCreationView')->name
-('ajax.createClass');
+Route::post('/getClassCreateView', 'AjaxController@classCreationView')->name('ajax.createClass');
 
-Route::post('/createClass', 'ClassesController@createClass')->name
-('createClass');
+Route::post('/getPupilCreateView', 'AjaxController@pupilCreationView')->name('ajax.createPupil');
+
+Route::post('/createClass', 'ClassesController@createClass')->name('createClass');
+
+Route::post('/createPupil', 'PupilsController@createPupil')->name('createPupil');
 
 Route::get('/verify', 'RegisterController@verifyUser');
 
